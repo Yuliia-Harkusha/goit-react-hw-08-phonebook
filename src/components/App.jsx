@@ -11,8 +11,19 @@ import {
   ContactsCard,
   ContactsTitle,
 } from './App.styled';
+import { useDispatch } from 'react-redux';
+import { useAuth } from 'hooks';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/auth/operations';
 
 export const App = () => {
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <Container>
       <Card>
