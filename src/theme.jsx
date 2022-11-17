@@ -3,6 +3,8 @@ export const theme = Object.freeze({
     accent: '#11a0cf',
     hover: '#1bb1e2',
     gray: '#464444',
+    lightGray: '#635050',
+    orange: '#f6950d',
     light: '#f2f2f2',
     dark: '#212121',
     mainBackground: ['linear-gradient(to bottom, #c9d6ff,  #e2e2e2)'],

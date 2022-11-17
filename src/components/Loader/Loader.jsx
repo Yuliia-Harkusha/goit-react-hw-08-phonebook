@@ -7,7 +7,7 @@ export const Loader = () => {
       <RevolvingDot
         height="100"
         width="100"
-        radius="6"
+        radius="30"
         color="#11a0cf"
         secondaryColor=""
         ariaLabel="revolving-dot-loading"

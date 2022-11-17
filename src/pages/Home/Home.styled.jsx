@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Title = styled.h1`
   margin-bottom: ${props => props.theme.spacing(5)};
+  text-align: center;
   font-size: ${props => props.theme.fontSizes.large};
   font-weight: 700;
   color: ${props => props.theme.colors.gray};

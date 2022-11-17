@@ -1,0 +1,15 @@
+import styled from 'styled-components';
+
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: ${props => props.theme.spacing(4)};
+  padding: ${props => props.theme.spacing(3)} ${props => props.theme.spacing(4)};
+  box-shadow: ${props => props.theme.shadows.small};
+
+  @media screen and (min-width: 768px) {
+    padding: ${props => props.theme.spacing(5)}
+      ${props => props.theme.spacing(7)};
+  }
+`;

@@ -1,7 +1,14 @@
 import { useDispatch } from 'react-redux';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import { userLoginSchema } from 'utils/validationSchema';
 import { logIn } from 'redux/auth/operations';
+import {
+  FormStyled,
+  Label,
+  Input,
+  Button,
+  ErrorText,
+} from 'components/RegisterForm/RegisterForm.styled';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -23,6 +30,15 @@ export const LoginForm = () => {
     password: '',
   };
 
+  const FormError = ({ name }) => {
+    return (
+      <ErrorMessage
+        name={name}
+        render={message => <ErrorText>{message}</ErrorText>}
+      />
+    );
+  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -30,33 +46,33 @@ export const LoginForm = () => {
       validationSchema={userLoginSchema}
     >
       {({ values, handleChange, handleSubmit, handleReset, isSubmitting }) => (
-        <Form onSubmit={handleSubmit} autoComplete="off">
-          <label>
+        <FormStyled onSubmit={handleSubmit} autoComplete="off">
+          <Label>
             Email
-            <input
+            <Input
               type="email"
               name="email"
               placeholder="E-mail"
               onChange={handleChange}
               value={values.email}
             />
-            <ErrorMessage name="email" component="div" />
-          </label>
-          <label>
+            <FormError name="email" component="div" />
+          </Label>
+          <Label>
             Password
-            <input
+            <Input
               type="password"
               name="password"
               placeholder="Password"
               onChange={handleChange}
               value={values.pasword}
             />
-            <ErrorMessage name="password" component="div" />
-          </label>
-          <button type="submit" disabled={isSubmitting} onClick={handleReset}>
+            <FormError name="password" component="div" />
+          </Label>
+          <Button type="submit" disabled={isSubmitting} onClick={handleReset}>
             Log In
-          </button>
-        </Form>
+          </Button>
+        </FormStyled>
       )}
     </Formik>
   );

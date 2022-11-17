@@ -32,7 +32,8 @@ export const Button = styled.button`
   color: ${props => props.theme.colors.light};
   font-weight: 500;
   font-size: ${props => props.theme.fontSizes.small};
-  :hover {
+  :hover,
+  :focus {
     background-color: ${props => props.theme.colors.hover};
     box-shadow: ${props => props.theme.shadows.small};
   }
