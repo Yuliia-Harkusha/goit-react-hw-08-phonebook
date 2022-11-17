@@ -62,7 +62,7 @@ export const RegisterForm = () => {
               name="password"
               placeholder="Password"
               onChange={handleChange}
-              value={values.pasword}
+              value={values.password}
             />
             <ErrorMessage name="password" component="div" />
           </label>
