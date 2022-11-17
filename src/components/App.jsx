@@ -1,20 +1,17 @@
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { FormAddContact } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import {
-  Container,
-  Card,
-  Title,
-  Accent,
-  ContactsCard,
-  ContactsTitle,
-} from './App.styled';
 import { useDispatch } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
+import { useEffect, lazy, Suspense } from 'react';
 import { useAuth } from 'hooks';
-import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
+import { PublicRoute } from './PublicRoute';
+import { PrivateRoute } from './PrivateRoute';
+import { Loader } from './Loader/Loader';
+import { AppBar } from './AppBar/AppBar';
+
+const HomePage = lazy(() => import('pages/Home/Home'));
+const RegisterPage = lazy(() => import('pages/Register'));
+const LoginPage = lazy(() => import('pages/Login'));
+const ContactsPage = lazy(() => import('pages/Contacts/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,20 +22,40 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <Container>
-      <Card>
-        <Title>
-          Phone<Accent>book</Accent>
-        </Title>
-        <FormAddContact />
-      </Card>
+    <>
+      <AppBar />
 
-      <ContactsCard>
-        <ContactsTitle>Contacts</ContactsTitle>
-        <Filter />
-        <ContactList />
-      </ContactsCard>
-      <ToastContainer autoClose={2000} theme="colored" />
-    </Container>
+      <Suspense fallback={<Loader />}>
+        {!isRefreshing && (
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/register"
+              element={
+                <PublicRoute
+                  redirectTo="/contacts"
+                  component={<RegisterPage />}
+                />
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <PublicRoute redirectTo="/contacts" component={<LoginPage />} />
+              }
+            />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<ContactsPage />}
+                />
+              }
+            />
+          </Routes>
+        )}
+      </Suspense>
+    </>
   );
 };
