@@ -12,8 +12,8 @@ export const theme = Object.freeze({
   },
   fontSizes: {
     small: '16px',
-    medium: '22px',
-    medLarge: '30px',
+    medium: '20px',
+    medLarge: '22px',
     large: '34px',
   },
   fonts: ['sans-serif', 'Roboto'],

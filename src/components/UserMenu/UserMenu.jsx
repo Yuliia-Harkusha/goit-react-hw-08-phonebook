@@ -12,7 +12,7 @@ export const UserMenu = () => {
     <UserBar>
       <Icon />
       <Text>
-        Welcome, <UserName>{user.name}</UserName>{' '}
+        Welcome, <UserName>{user.name}</UserName>!
       </Text>
       <Button type="button" onClick={() => dispatch(logOut())}>
         Logout

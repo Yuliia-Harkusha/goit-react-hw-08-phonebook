@@ -18,12 +18,12 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const onFormSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
+    // e.preventDefault();
+    const form = e;
     const user = {
-      name: form.elements.name.value,
-      email: form.elements.email.value,
-      password: form.elements.password.value,
+      name: form.name,
+      email: form.email,
+      password: form.password,
     };
     dispatch(register(user));
     console.log(user);
@@ -51,60 +51,7 @@ export const RegisterForm = () => {
       onSubmit={onFormSubmit}
       validationSchema={userRegisterSchema}
     >
-      {/* {({
-        errors,
-        touched,
-        values,
-        handleChange,
-        handleSubmit,
-        handleReset,
-        isSubmitting,
-      }) => (
-        <Form autoComplete="off">
-          <label>
-            User name
-            <Field
-              type="text"
-              name="name"
-              placeholder="Name"
-              onChange={handleChange}
-              value={values.name}
-            />
-            {errors.name && touched.name ? <div>{errors.name}</div> : null}
-            <ErrorMessage name="name" component="div" />
-          </label>
-          <label>
-            Email
-            <Field
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              onChange={handleChange}
-              value={values.email}
-            />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
-            <ErrorMessage name="email" component="div" />
-          </label>
-          <label>
-            Password
-            <Field
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-              value={values.password}
-            />
-            {errors.password && touched.password ? (
-              <div>{errors.password}</div>
-            ) : null}
-            <ErrorMessage name="password" component="div" />
-          </label>
-          <button type="submit" disabled={isSubmitting} onClick={handleReset}>
-            Register
-          </button>
-        </Form>
-      )} */}
-      {({ values, handleChange, handleSubmit, handleReset, isSubmitting }) => (
+      {({ values, handleChange, handleSubmit, isSubmitting }) => (
         <FormStyled autoComplete="off">
           <Label>
             User Name
@@ -149,7 +96,7 @@ export const RegisterForm = () => {
             </FormItem>
             <FormError name="password" component="div" />
           </Label>
-          <Button type="submit" disabled={isSubmitting} onClick={handleReset}>
+          <Button type="submit" disabled={isSubmitting}>
             Register
           </Button>
         </FormStyled>

@@ -17,12 +17,12 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
 
   const onFormSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
+    // e.preventDefault();
+    const form = e;
     dispatch(
       logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
+        email: form.email,
+        password: form.password,
       })
     );
     // form.reset();
@@ -48,7 +48,7 @@ export const LoginForm = () => {
       onSubmit={onFormSubmit}
       validationSchema={userLoginSchema}
     >
-      {({ values, handleChange, handleSubmit, handleReset, isSubmitting }) => (
+      {({ values, handleChange, handleSubmit, isSubmitting }) => (
         <FormStyled onSubmit={handleSubmit} autoComplete="off">
           <Label>
             E-mail
@@ -78,7 +78,7 @@ export const LoginForm = () => {
             </FormItem>
             <FormError name="password" component="div" />
           </Label>
-          <Button type="submit" disabled={isSubmitting} onClick={handleReset}>
+          <Button type="submit" disabled={isSubmitting}>
             Log In
           </Button>
         </FormStyled>

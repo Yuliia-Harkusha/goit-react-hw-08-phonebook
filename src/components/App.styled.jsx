@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 1200px;
+  /* max-width: 1200px; */
 
   padding: ${props => props.theme.spacing(3)};
 
@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${props => props.theme.spacing(100)};
+  width: ${props => props.theme.spacing(80)};
   margin-left: auto;
   margin-right: auto;
   padding: ${props => props.theme.spacing(5)};
@@ -23,7 +23,7 @@ export const Card = styled.div`
 export const ContactsCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${props => props.theme.spacing(100)};
+  width: ${props => props.theme.spacing(80)};
   margin-left: auto;
   margin-right: auto;
   padding: ${props => props.theme.spacing(5)};

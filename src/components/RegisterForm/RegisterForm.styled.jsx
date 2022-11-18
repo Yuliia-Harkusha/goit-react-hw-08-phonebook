@@ -32,8 +32,6 @@ export const IconPassword = styled(FaLock)`
 
 export const FormItem = styled.div`
   /* display: flex; */
-  /* justify-content: baseline;
-  gap: ${props => props.theme.spacing(1)}; */
 `;
 
 export const Label = styled.label`
@@ -48,7 +46,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled(Field)`
-  width: 100%;
+  width: -webkit-fill-available;
   padding: ${props => props.theme.spacing(1)};
   padding-left: ${props => props.theme.spacing(7)};
   :focus-visible {
@@ -58,12 +56,11 @@ export const Input = styled(Field)`
 
 export const Button = styled.button`
   display: block;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: ${props => props.theme.spacing(3)};
+  margin-top: ${props => props.theme.spacing(4)};
   padding: ${props => props.theme.spacing(2)};
-  padding-left: ${props => props.theme.spacing(10)};
-  padding-right: ${props => props.theme.spacing(10)};
   cursor: pointer;
   border: none;
   border-radius: ${props => props.theme.radii.primary}px;

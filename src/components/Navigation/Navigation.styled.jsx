@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const NavigLink = styled(NavLink)`
   padding: ${props => props.theme.spacing(2)};
   font-size: ${props => props.theme.fontSizes.small};
-  font-weight: 700;
+  font-weight: 500;
   color: ${props => props.theme.colors.gray};
   :hover,
   :focus {
@@ -15,7 +15,7 @@ export const NavigLink = styled(NavLink)`
   }
 
   @media screen and (min-width: 768px) {
-    font-size: ${props => props.theme.fontSizes.medium};
-    font-weight: 650;
+    font-size: ${props => props.theme.fontSizes.medLarge};
+    font-weight: 700;
   }
 `;

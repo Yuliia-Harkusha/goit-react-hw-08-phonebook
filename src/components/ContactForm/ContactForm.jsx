@@ -35,6 +35,7 @@ export const FormAddContact = () => {
   };
 
   const handleSubmit = e => {
+    console.log(e);
     e.preventDefault();
     if (isDuplicate({ name, number })) {
       toast.warn(`"${name}: ${number}" is already in contacts`);
