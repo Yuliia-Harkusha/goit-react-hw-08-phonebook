@@ -20,13 +20,14 @@ export const RegisterForm = () => {
   const onFormSubmit = e => {
     // e.preventDefault();
     const form = e;
-    const user = {
-      name: form.name,
-      email: form.email,
-      password: form.password,
-    };
-    dispatch(register(user));
-    console.log(user);
+    // const user = {
+    //   name: form.name,
+    //   email: form.email,
+    //   password: form.password,
+    // };
+    dispatch(
+      register({ name: form.name, email: form.email, password: form.password })
+    );
     // form.reset();
   };
 
@@ -52,7 +53,7 @@ export const RegisterForm = () => {
       validationSchema={userRegisterSchema}
     >
       {({ values, handleChange, handleSubmit, isSubmitting }) => (
-        <FormStyled autoComplete="off">
+        <FormStyled onSubmit={handleSubmit} autoComplete="off">
           <Label>
             User Name
             <FormItem>
