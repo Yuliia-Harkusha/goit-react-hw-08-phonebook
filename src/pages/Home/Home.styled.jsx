@@ -11,3 +11,14 @@ export const Title = styled.h1`
 export const Accent = styled.span`
   color: ${props => props.theme.colors.accent};
 `;
+
+export const Image = styled.img`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
+`;
