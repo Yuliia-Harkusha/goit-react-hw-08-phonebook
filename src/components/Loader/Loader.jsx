@@ -8,7 +8,7 @@ export const Loader = () => {
         height="100"
         width="100"
         radius="30"
-        color="#11a0cf"
+        color="#1bb1e2"
         secondaryColor=""
         ariaLabel="revolving-dot-loading"
         // radius="5"

@@ -8,6 +8,10 @@ import {
   Input,
   Button,
   ErrorText,
+  IconUser,
+  FormItem,
+  IconMail,
+  IconPassword,
 } from './RegisterForm.styled';
 
 export const RegisterForm = () => {
@@ -104,36 +108,45 @@ export const RegisterForm = () => {
         <FormStyled autoComplete="off">
           <Label>
             User Name
-            <Input
-              type="text"
-              name="name"
-              placeholder="Name"
-              onChange={handleChange}
-              value={values.name}
-            />
+            <FormItem>
+              <IconUser />
+              <Input
+                type="text"
+                name="name"
+                placeholder="Name"
+                onChange={handleChange}
+                value={values.name}
+              />
+            </FormItem>
             <FormError name="name" component="div" />
           </Label>
 
           <Label>
-            Email
-            <Input
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              onChange={handleChange}
-              value={values.email}
-            />
+            E-mail
+            <FormItem>
+              <IconMail />
+              <Input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                onChange={handleChange}
+                value={values.email}
+              />
+            </FormItem>
             <FormError name="email" component="div" />
           </Label>
           <Label>
             Password
-            <Input
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-              value={values.password}
-            />
+            <FormItem>
+              <IconPassword />
+              <Input
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={handleChange}
+                value={values.password}
+              />
+            </FormItem>
             <FormError name="password" component="div" />
           </Label>
           <Button type="submit" disabled={isSubmitting} onClick={handleReset}>

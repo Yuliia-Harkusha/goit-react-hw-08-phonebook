@@ -8,6 +8,9 @@ import {
   Input,
   Button,
   ErrorText,
+  IconMail,
+  FormItem,
+  IconPassword,
 } from 'components/RegisterForm/RegisterForm.styled';
 
 export const LoginForm = () => {
@@ -48,25 +51,31 @@ export const LoginForm = () => {
       {({ values, handleChange, handleSubmit, handleReset, isSubmitting }) => (
         <FormStyled onSubmit={handleSubmit} autoComplete="off">
           <Label>
-            Email
-            <Input
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              onChange={handleChange}
-              value={values.email}
-            />
+            E-mail
+            <FormItem>
+              <IconMail />
+              <Input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                onChange={handleChange}
+                value={values.email}
+              />
+            </FormItem>
             <FormError name="email" component="div" />
           </Label>
           <Label>
             Password
-            <Input
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-              value={values.pasword}
-            />
+            <FormItem>
+              <IconPassword />
+              <Input
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={handleChange}
+                value={values.pasword}
+              />
+            </FormItem>
             <FormError name="password" component="div" />
           </Label>
           <Button type="submit" disabled={isSubmitting} onClick={handleReset}>
