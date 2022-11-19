@@ -17,18 +17,8 @@ import {
 export const RegisterForm = () => {
   const dispatch = useDispatch();
 
-  const onFormSubmit = e => {
-    // e.preventDefault();
-    const form = e;
-    // const user = {
-    //   name: form.name,
-    //   email: form.email,
-    //   password: form.password,
-    // };
-    dispatch(
-      register({ name: form.name, email: form.email, password: form.password })
-    );
-    // form.reset();
+  const onFormSubmit = ({ name, email, password }) => {
+    return dispatch(register({ name, email, password }));
   };
 
   const initialValues = {
