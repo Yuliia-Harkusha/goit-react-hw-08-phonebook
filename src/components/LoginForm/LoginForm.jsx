@@ -16,16 +16,8 @@ import {
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const onFormSubmit = e => {
-    // e.preventDefault();
-    const form = e;
-    dispatch(
-      logIn({
-        email: form.email,
-        password: form.password,
-      })
-    );
-    // form.reset();
+  const onFormSubmit = ({ email, password }) => {
+    return dispatch(logIn({ email, password }));
   };
 
   const initialValues = {

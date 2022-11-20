@@ -14,7 +14,8 @@ export const Icon = styled(FaUser)`
     margin-right: ${props => props.theme.spacing(2)};
     padding: ${props => props.theme.spacing(2)};
     background-color: ${props => props.theme.colors.accent};
-    color: ${props => props.theme.colors.light};
+    color: white;
+    /* color: ${props => props.theme.colors.light}; */
     border-radius: 50%;
   }
 `;
@@ -26,7 +27,7 @@ export const Text = styled.p`
   color: ${props => props.theme.colors.gray};
 
   @media screen and (min-width: 768px) {
-    margin-right: ${props => props.theme.spacing(4)};
+    margin-right: ${props => props.theme.spacing(6)};
     /* padding: ${props => props.theme.spacing(7)}; */
     font-size: ${props => props.theme.fontSizes.medium};
     font-weight: 500;
