@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useFetchContactsQuery, useAddContactMutation } from 'redux/api';
@@ -12,8 +12,8 @@ export const FormAddContact = () => {
   const [addContact] = useAddContactMutation();
   const { data: contacts } = useFetchContactsQuery();
 
-  const nameId = nanoid();
-  const numberId = nanoid();
+  // const nameId = nanoid();
+  // const numberId = nanoid();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -41,7 +41,7 @@ export const FormAddContact = () => {
       toast.warn(`"${name}: ${number}" is already in contacts`);
     } else {
       toast.success('The contact has been successfully added');
-      addContact({ id: nanoid(), name, number });
+      addContact({ name, number });
     }
     setName('');
     setNumber('');
@@ -50,9 +50,9 @@ export const FormAddContact = () => {
   return (
     <form onSubmit={handleSubmit}>
       <FormItem>
-        <Label htmlFor={nameId}>Name: </Label>
+        <Label>Name: </Label>
         <Input
-          id={nameId}
+          // id={nameId}
           onChange={handleChange}
           value={name}
           type="text"
@@ -64,9 +64,9 @@ export const FormAddContact = () => {
         />
       </FormItem>
       <FormItem>
-        <Label htmlFor={numberId}>Number: </Label>
+        <Label>Number: </Label>
         <Input
-          id={numberId}
+          // id={numberId}
           onChange={handleChange}
           value={number}
           type="tel"

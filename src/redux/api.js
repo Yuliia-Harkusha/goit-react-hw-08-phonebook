@@ -3,6 +3,10 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const contactsApi = createApi({
   reducerPath: 'contactsApi',
   tagTypes: ['Contacts'],
+  refetchOnMountOrArgChange: true,
+  refetchOnFocus: true,
+  refetchOnReconnect: true,
+
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com/',
 
@@ -17,18 +21,18 @@ export const contactsApi = createApi({
 
   endpoints: builder => ({
     fetchContacts: builder.query({
-      query: () => ({
-        url: '/contacts',
-      }),
+      query: () => ({ url: '/contacts' }),
       providesTags: ['Contacts'],
     }),
+
     deleteContact: builder.mutation({
-      query: id => ({
-        url: `/contacts/${id}`,
+      query: contactId => ({
+        url: `/contacts/${contactId}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Contacts'],
     }),
+
     addContact: builder.mutation({
       query: contact => ({
         url: '/contacts',
